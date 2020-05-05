@@ -9,6 +9,13 @@ Arquivo de leitura para facilitar o entendimento futuro desse app em Ionic 1 e C
 ionic start nomeProjeto blank --type ionic1
 ```
 
+## Nova funcionalidade:
+### Vibração
+
+O celular vibra quando faz um novo pedido.
+Todas as informações do plugin estão disponíveis no link abaixo:
+https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-vibration/
+
 
 ## Comando para clonar o repositorio remoto
 ``` shell 
