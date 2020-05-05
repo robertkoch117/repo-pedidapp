@@ -10,6 +10,11 @@ angular.module('starter').controller('DetalheController', function($scope, Produ
     });
 });
 
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.vibrate);
+}
+
 angular.module('starter').controller('PedidoController', function($scope, $stateParams, $http, $state, $ionicPopup, $ionicLoading, ProdutosService){
     ProdutosService.lista().then(function(dados){
         $scope.bolo = dados[$stateParams.boloId];
@@ -29,6 +34,8 @@ angular.module('starter').controller('PedidoController', function($scope, $state
         }).then(function(){
             //caso OK, mostra pop-up confirmando e
             //entao navega para home
+            //comando para vibrar o telefone quando o pedido for feito
+            $scope.vibrar();
             $ionicPopup.alert({
                 title: 'Pedido confirmado!',
                 template: 'Daqui a pouco chega :)'
@@ -46,4 +53,10 @@ angular.module('starter').controller('PedidoController', function($scope, $state
             $ionicLoading.hide();
         });
     };
+
+    $scope.vibrar = function(){
+        //vibrar o celular
+        navigator.vibrate(1000);
+        console.log("Vibração feita!");
+    }
 });
